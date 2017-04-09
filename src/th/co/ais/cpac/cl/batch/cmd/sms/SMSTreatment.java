@@ -47,7 +47,7 @@ public class SMSTreatment extends SMSLetterTreatmentTemplate {
 
   @Override
   protected String getPathDatabase() {
-    return "D:\\Work\\Ais\\Apps\\Batch\\configuration\\database.properties";
+    return "C:\\cpac\\database.properties";
   }
 
   @Override
@@ -78,7 +78,7 @@ public class SMSTreatment extends SMSLetterTreatmentTemplate {
     //action_id , criteria_id , template_type(sms ,letter) , language_id
     HashMap<BigDecimal, HashMap<BigDecimal, HashMap<String, HashMap<BigDecimal, CLCriteriaTemplate.CriteriaTemplateInfo>>>> templateInfo = getTemplateInfo();
     if (templateInfo == null) {
-      // ???? error ต้องมีการ update cl_batch เพื่อเปลี่ยน status
+      // ???? error เธ•เน�เธญเธ�เธกเธตเธ�เธฒเธฃ update cl_batch เน€เธ�เธทเน�เธญเน€เธ�เธฅเธตเน�เธขเธ� status
       return false;
     }
     //</editor-fold>

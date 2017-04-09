@@ -16,6 +16,7 @@ import th.co.ais.cpac.cl.batch.db.CLCriteriaAttribute;
 import th.co.ais.cpac.cl.batch.db.CLLanguage;
 import th.co.ais.cpac.cl.batch.db.CLTempTreatment;
 import th.co.ais.cpac.cl.batch.db.PMCompany;
+import th.co.ais.cpac.cl.batch.util.LogUtil;
 import th.co.ais.cpac.cl.common.Context;
 import th.co.ais.cpac.cl.common.UtilityLogger;
 import th.co.ais.cpac.cl.template.database.DBConnectionPools;
@@ -60,7 +61,7 @@ public abstract class TreatmentTemplate {
     return dd;
   }
 
-  protected boolean initial() {
+  protected boolean initial() throws Exception {
 
     if (argument == null) {
       return true;
@@ -92,8 +93,8 @@ public abstract class TreatmentTemplate {
     }
     database = new CNFDatabase(fileConfig);
 
-    context = new Context();
-    context.initailLogger("LoggerMasterBatchInfo", System.currentTimeMillis() + "");
+	LogUtil.initialLogger();
+	Context context = new Context();
 
     DBConnectionPools<CNFDatabase, UtilityLogger> pool = new DBConnectionPools<>(database, context.getLogger());
     pool.buildeDataSource();
